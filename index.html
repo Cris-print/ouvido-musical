@@ -4,406 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ouvido Musical</title>
-    <style>
-      :root {
-        --bg: #0f172a;
-        --panel: #111827;
-        --panel-soft: #1f2937;
-        --text: #e5e7eb;
-        --muted: #94a3b8;
-        --primary: #8b5cf6;
-        --primary-2: #a78bfa;
-        --success: #22c55e;
-        --danger: #ef4444;
-        --warning: #f59e0b;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #0f172a, #111827);
-        color: var(--text);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-      }
-
-      .app {
-        width: min(100%, 800px);
-        background: rgba(17, 24, 39, 0.95);
-        border: 1px solid rgba(167, 139, 250, 0.3);
-        border-radius: 18px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-        padding: 28px;
-      }
-
-      h1 {
-        margin: 0 0 8px;
-        font-size: clamp(2rem, 4vw, 3rem);
-      }
-
-      .subtitle {
-        color: var(--muted);
-        margin: 0 0 20px;
-        line-height: 1.5;
-      }
-
-      .level-switch {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-bottom: 22px;
-      }
-
-      .level-btn,
-      .choice-btn,
-      .play-btn {
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: transform 0.15s ease, opacity 0.2s ease;
-        font-weight: 700;
-      }
-
-      .level-btn {
-        padding: 12px 18px;
-        background: var(--panel-soft);
-        color: var(--text);
-        border: 1px solid transparent;
-      }
-
-      .level-btn.active {
-        background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        color: white;
-        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.35);
-      }
-
-      .level-btn:hover,
-      .choice-btn:hover,
-      .play-btn:hover {
-        transform: translateY(-1px);
-      }
-
-      .status-panel {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(100px, 1fr));
-        gap: 12px;
-        margin-bottom: 20px;
-      }
-
-      .metric {
-        background: var(--panel-soft);
-        border-radius: 14px;
-        padding: 16px 12px;
-        text-align: center;
-        border: 1px solid rgba(148, 163, 184, 0.18);
-      }
-
-      .metric-label {
-        font-size: 0.8rem;
-        color: var(--muted);
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      .metric-value {
-        font-size: 1.8rem;
-        font-weight: 700;
-      }
-
-      .play-zone {
-        background: rgba(31, 41, 55, 0.7);
-        border-radius: 16px;
-        padding: 22px 18px;
-        border: 1px solid rgba(148, 163, 184, 0.15);
-        margin-bottom: 24px;
-      }
-
-      .play-btn {
-        width: 100%;
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-        color: white;
-        padding: 18px 20px;
-        font-size: 1.05rem;
-      }
-
-      .message {
-        min-height: 28px;
-        margin-top: 16px;
-        font-size: 1.02rem;
-        color: var(--text);
-      }
-
-      .message.good {
-        color: var(--success);
-      }
-
-      .message.bad {
-        color: var(--danger);
-      }
-
-      .message.neutral {
-        color: var(--warning);
-      }
-
-      .choices {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 12px;
-      }
-
-      .choice-btn {
-        background: #1f2937;
-        color: var(--text);
-        border: 1px solid rgba(148, 163, 184, 0.18);
-        padding: 18px 10px;
-        min-height: 64px;
-        font-size: 1rem;
-      }
-
-      .choice-btn.correct {
-        background: rgba(34, 197, 94, 0.18);
-        border-color: rgba(34, 197, 94, 0.6);
-      }
-
-      .choice-btn.wrong {
-        background: rgba(239, 68, 68, 0.12);
-        border-color: rgba(239, 68, 68, 0.5);
-      }
-
-      .footer-note {
-        margin-top: 18px;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 560px) {
-        .status-panel {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <meta
+      name="description"
+      content="Treinamento auditivo musical: escute o acorde e identifique o tipo correto."
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <main class="app">
-      <h1>Ouvido Musical</h1>
-      <p class="subtitle">
-        Escute o acorde e escolha a categoria correta. Esse projeto é um bom ponto de partida para treinar percepção musical.
-      </p>
-
-      <div class="level-switch" aria-label="Escolha de nível">
-        <button class="level-btn active" data-level="basic">Básico</button>
-        <button class="level-btn" data-level="advanced">Avançado</button>
-      </div>
-
-      <section class="status-panel" aria-live="polite">
-        <div class="metric">
-          <span class="metric-label">Pontuação</span>
-          <span class="metric-value" id="score">0</span>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Projetinho de música</p>
+          <h1>Ouvido Musical</h1>
         </div>
-        <div class="metric">
-          <span class="metric-label">Sequência</span>
-          <span class="metric-value" id="streak">0</span>
+      </header>
+
+      <section class="panel stats-panel" aria-live="polite">
+        <div class="stat-card">
+          <span class="label">Pontuação</span>
+          <strong id="score">0</strong>
         </div>
-        <div class="metric">
-          <span class="metric-label">Melhor</span>
-          <span class="metric-value" id="best">0</span>
+        <div class="stat-card">
+          <span class="label">Sequência</span>
+          <strong id="streak">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="label">Melhor</span>
+          <strong id="best">0</strong>
         </div>
       </section>
 
-      <section class="play-zone">
+      <section class="panel controls-panel">
+        <div class="level-switch" aria-label="Seleção de nível">
+          <button class="level-btn active" data-level="basic">Básico</button>
+          <button class="level-btn" data-level="intermediate">Intermediário</button>
+          <button class="level-btn" data-level="advanced">Avançado</button>
+        </div>
+
         <button id="play-btn" class="play-btn">Tocar acorde</button>
-        <div id="message" class="message neutral" aria-live="polite"></div>
+        <p id="message" class="message neutral" aria-live="polite">
+          Selecione um nível e toque o primeiro acorde.
+        </p>
       </section>
 
-      <div id="choices" class="choices" aria-live="polite"></div>
-
-      <p class="footer-note">
-        Dica: use fones para uma experiência melhor. A música está em você.
-      </p>
+      <section class="panel choices-panel">
+        <div id="choices" class="choices" aria-live="polite"></div>
+      </section>
     </main>
 
-    <script>
-      const LEVELS = {
-        basic: ["maior", "menor"],
-        advanced: ["maior", "menor", "sétima", "diminuta", "maior7"]
-      };
-
-      const CHORD_LABELS = {
-        maior: "Maior",
-        menor: "Menor",
-        sétima: "Sétima",
-        diminuta: "Diminuta",
-        maior7: "Maior com 7"
-      };
-
-      const state = {
-        level: "basic",
-        currentAnswer: null,
-        score: 0,
-        streak: 0,
-        best: Number(localStorage.getItem("ouvido-musical-best") || 0),
-        currentRoot: 60
-      };
-
-      const scoreEl = document.getElementById("score");
-      const streakEl = document.getElementById("streak");
-      const bestEl = document.getElementById("best");
-      const messageEl = document.getElementById("message");
-      const choicesEl = document.getElementById("choices");
-      const playBtn = document.getElementById("play-btn");
-
-      function setMessage(text, type = "neutral") {
-        messageEl.textContent = text;
-        messageEl.className = `message ${type}`;
-      }
-
-      function updateScoreboard() {
-        scoreEl.textContent = state.score;
-        streakEl.textContent = state.streak;
-        bestEl.textContent = state.best;
-      }
-
-      function saveBest() {
-        const best = Math.max(state.best, state.score);
-        state.best = best;
-        localStorage.setItem("ouvido-musical-best", String(best));
-        updateScoreboard();
-      }
-
-      function setLevel(level) {
-        state.level = level;
-        document.querySelectorAll(".level-btn").forEach((btn) => {
-          btn.classList.toggle("active", btn.dataset.level === level);
-        });
-        state.currentAnswer = null;
-        setMessage("Nível alterado. Toque um novo acorde.", "neutral");
-        renderChoices();
-      }
-
-      function randomChoice(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
-      }
-
-      function freqFromMidi(midi) {
-        return 440 * Math.pow(2, (midi - 69) / 12);
-      }
-
-      function playChord(type, rootMidi = 60, duration = 1.2) {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) {
-          setMessage("Seu navegador não suporta Web Audio API.", "bad");
-          return;
-        }
-
-        const ctx = new AudioContextClass();
-        const now = ctx.currentTime;
-        const master = ctx.createGain();
-        master.gain.value = 0.12;
-        master.connect(ctx.destination);
-
-        const intervals = {
-          maior: [0, 4, 7],
-          menor: [0, 3, 7],
-          sétima: [0, 4, 7, 10],
-          diminuta: [0, 3, 6],
-          maior7: [0, 4, 7, 11]
-        };
-
-        const notes = intervals[type] || [0, 4, 7];
-
-        notes.forEach((offset) => {
-          const osc = ctx.createOscillator();
-          const gainNode = ctx.createGain();
-
-          osc.type = "sine";
-          osc.frequency.value = freqFromMidi(rootMidi + offset);
-
-          gainNode.gain.setValueAtTime(0.0001, now);
-          gainNode.gain.exponentialRampToValueAtTime(0.22, now + 0.03);
-          gainNode.gain.exponentialRampToValueAtTime(0.0001, now + duration);
-
-          osc.connect(gainNode);
-          gainNode.connect(master);
-
-          osc.start(now);
-          osc.stop(now + duration);
-        });
-
-        setTimeout(() => ctx.close(), duration * 1000 + 200);
-      }
-
-      function renderChoices() {
-        choicesEl.innerHTML = "";
-
-        const options = LEVELS[state.level];
-
-        options.forEach((type) => {
-          const btn = document.createElement("button");
-          btn.className = "choice-btn";
-          btn.textContent = CHORD_LABELS[type];
-          btn.setAttribute("data-choice", type);
-
-          btn.addEventListener("click", () => {
-            if (!state.currentAnswer) {
-              setMessage("Primeiro toque um acorde.", "neutral");
-              return;
-            }
-
-            const chosen = btn.dataset.choice;
-            const isCorrect = chosen === state.currentAnswer;
-
-            btn.classList.add(isCorrect ? "correct" : "wrong");
-
-            if (isCorrect) {
-              state.score += 1;
-              state.streak += 1;
-              setMessage("Acertou! 🎉", "good");
-            } else {
-              state.streak = 0;
-              setMessage(`Errou! O acorde era ${CHORD_LABELS[state.currentAnswer]}.`, "bad");
-            }
-
-            saveBest();
-            updateScoreboard();
-
-            setTimeout(() => {
-              btn.classList.remove("correct", "wrong");
-              state.currentAnswer = null;
-            }, 600);
-          });
-
-          choicesEl.appendChild(btn);
-        });
-      }
-
-      function newRound() {
-        const options = LEVELS[state.level];
-        state.currentAnswer = randomChoice(options);
-        state.currentRoot = 52 + Math.floor(Math.random() * 12);
-        playChord(state.currentAnswer, state.currentRoot, 1.2);
-        setMessage(`Ouça o acorde e escolha a resposta.`, "neutral");
-      }
-
-      playBtn.addEventListener("click", () => {
-        newRound();
-      });
-
-      document.querySelectorAll(".level-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          setLevel(btn.dataset.level);
-        });
-      });
-
-      renderChoices();
-      updateScoreboard();
-      setMessage("Selecione um nível e toque o primeiro acorde.", "neutral");
-    </script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
