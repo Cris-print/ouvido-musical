@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 1000 200">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#7b2ff7"/>
+      <stop offset="100%" stop-color="#2b86f7"/>
+    </linearGradient>
+    <style>
+      .bg { fill: url(#g); }
+      .title { font-family: 'Segoe UI', Roboto, Arial, sans-serif; font-size:40px; fill: white; font-weight:700; }
+      .subtitle { font-family: 'Segoe UI', Roboto, Arial, sans-serif; font-size:18px; fill: rgba(255,255,255,0.9); }
+    </style>
+  </defs>
+  <rect class="bg" width="1000" height="200" rx="12"/>
+  <g transform="translate(40,60)">
+    <text class="title">Ouvido Musical</text>
+    <text class="subtitle" y="42">Treine sua percepção auditiva — demo online</text>
+  </g>
+  <g transform="translate(820,140)">
+    <rect x="0" y="-36" width="160" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+    <text x="12" y="-12" class="subtitle">Ver demo →</text>
+  </g>
+</svg>
