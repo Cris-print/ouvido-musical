@@ -1,3 +1,5 @@
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Online-brightgreen)](https://cris-print.github.io/ouvido-musical/)
+
 # Ouvido Musical
 
 Ferramenta de treinamento auditivo musical que ajuda a confiar no próprio ouvido.
