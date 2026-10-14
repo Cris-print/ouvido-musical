@@ -2,97 +2,61 @@
 
 # Ouvido Musical
 
-Ferramenta de treinamento auditivo musical que ajuda a confiar no próprio ouvido.
+Ferramenta web simples para treinar percepção auditiva e identificação de acordes diretamente no navegador.
+
+Demo: [🔗 Ouvido Musical — Site ao vivo](https://cris-print.github.io/ouvido-musical/)
+
+---
 
 ## Visão geral
 
-Este projeto é uma pequena aplicação web para praticar percepção musical por meio de acordes. A ideia é simples: ouvir um acorde, identificar sua sonoridade e responder corretamente em poucos[...] 
+Ouvido Musical é uma aplicação estática (HTML/CSS/JS) que apresenta exercícios de identificação de acordes em diferentes níveis de dificuldade. O foco é desenvolver confiança auditiva por meio de práticas repetidas e feedback imediato.
 
-## Como funciona
+## Recursos
 
-- Escolha um nível de dificuldade
-- Clique em "Tocar acorde"
-- Escute com atenção
-- Identifique o tipo de acorde
-- Acumule pontos e aumente a sequência de acertos
+- Exercícios por níveis: Básico → Intermediário → Avançado  
+- Suporte a acordes: maior, menor, sétima, diminuta, sus2, sus4, entre outros  
+- Interface leve e sem dependências externas (funciona offline após o download dos arquivos)
 
-## Níveis disponíveis
+## Como usar
 
-### Básico
-- Maior
-- Menor
+1. Abra o repositório ou faça o download.
+2. Abra `index.html` no navegador ou rode um servidor local:
+   ```bash
+   python -m http.server 8000
+   ```
+3. Acesse `http://localhost:8000` ou visite o demo online.
 
-### Intermediário
-- Maior
-- Menor
-- Sétima
-- Diminuta
+## Como funciona (resumido)
 
-### Avançado
-- Maior
-- Menor
-- Sétima
-- Diminuta
-- Maior com 7
-- Sus2
-- Sus4
+- Escolha um nível de dificuldade.
+- Clique em "Tocar acorde".
+- Identifique o tipo de acorde exibido.
+- Receba feedback imediato e acumule pontos conforme acertos consecutivos.
 
-## Objetivo
+## Tecnologias
 
-Mais do que mostrar notas: é desenvolver confiança auditiva. A música já está em você.
-
-## Como executar localmente
-
-1. Clone ou baixe o projeto
-2. Abra o arquivo `index.html` no navegador
-3. Se preferir, use um servidor local:
-
-```bash
-python -m http.server 8000
-```
-
-Depois acessa:
-
-```bash
-http://localhost:8000
-```
-
-## Publicação no GitHub Pages
-
-Este projeto já foi pensado para funcionar como página estática no GitHub Pages.
-
-### Passos
-
-1. Vá até o repositório no GitHub
-2. Abra `Settings` → `Pages`
-3. Em source, selecione a branch principal (`main`)
-4. Use a pasta raiz (`/root`)
-5. Salve e aguarde a publicação
-
-O site publicado está disponível em:
-
-[🔗 Ouvido Musical — Site ao vivo](https://cris-print.github.io/ouvido-musical/)
-
-## Tecnologias usadas
-
-- HTML
-- CSS
-- JavaScript
+- HTML, CSS, JavaScript
 - Web Audio API
 
-## Melhorias futuras
+## Melhorias futuras (exemplos)
 
-- Mais exercícios de identificação auditiva
-- Sistema de progresso por sessão
-- Históricos de acertos e erros
-- Layout mais visual e responsivo
-- Ranking local com armazenamento em navegador
-- Módulo de continuações harmônicas
+- Histórico de desempenho por sessão
+- Layout responsivo e visual mais moderno
+- Exportar/importar progresso local
+- Novos tipos de exercícios e modos de treino
+
+## Contribuindo
+
+Contribuições são bem-vindas! Para pequenos ajustes, abra uma issue ou envie um pull request. Sugestões:
+- correções de texto e acessibilidade
+- melhoria no design/UX
+- novos exercícios ou modos de treino
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+Este projeto está sob licença MIT. Consulte o arquivo `LICENSE` para detalhes.
 
-## Descrição curta para o repositório
+## Contato
 
-Treinamento auditivo musical com exercícios de identificação de acordes em navegador.
+Criador: Cris-print — https://github.com/Cris-print
