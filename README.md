@@ -4,7 +4,7 @@ Ferramenta de treinamento auditivo musical que ajuda a confiar no próprio ouvid
 
 ## Visão geral
 
-Este projeto é uma pequena aplicação web para praticar percepção musical por meio de acordes. A ideia é simples: ouvir um acorde, identificar sua sonoridade e responder corretamente em poucos segundos.
+Este projeto é uma pequena aplicação web para praticar percepção musical por meio de acordes. A ideia é simples: ouvir um acorde, identificar sua sonoridade e responder corretamente em poucos[...] 
 
 ## Como funciona
 
@@ -67,11 +67,9 @@ Este projeto já foi pensado para funcionar como página estática no GitHub Pag
 4. Use a pasta raiz (`/root`)
 5. Salve e aguarde a publicação
 
-O site ficará disponível em algo como:
+O site publicado está disponível em:
 
-```text
-https://cris-print.github.io/ouvido-musical/
-```
+[🔗 Ouvido Musical — Site ao vivo](https://cris-print.github.io/ouvido-musical/)
 
 ## Tecnologias usadas
 
